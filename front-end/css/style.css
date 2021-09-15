@@ -1,0 +1,103 @@
+header{
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.logo{
+    width: 200px;
+}
+
+main{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+}
+
+h1{
+    margin: 20px;
+}
+
+article{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.sections{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.card-articles{
+    margin: 20px;
+}
+
+.none{
+    display: none;
+}
+
+.card-product{
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+
+@media screen and (max-width: 796px) {
+    .card-product{
+        flex-wrap: wrap;
+    }
+}
+
+.imgs-products{
+    width: 400px;
+
+}
+
+.list-qte, .list-coul{
+    margin: 20px 20px 20px 0px;
+}
+
+.icone-panier{
+    cursor: pointer;
+    display: flex;
+    text-decoration: none;
+    align-items: center;
+}
+
+.compteur{
+    margin-right: 10px;
+    font-size: 1.5em;
+}
+
+.box-btn-prix{
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    font-size: 2em;
+    align-items: center;
+}
+
+.img-panier{
+    width: 150px;
+}
+
+.section-panier{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.section-panier p{
+    margin: 20px 20px 20px 20px;
+
+}
+
+.prixTotalArticlePanier{
+    font-weight: bold;
+    font-size: 1em;
+}
