@@ -1,103 +1,301 @@
-header{
-    height: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+*{
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
 }
 
-.logo{
-    width: 200px;
+body{
+    background-image: url(/front-end/images/texture-noir.jpeg);
+}
+
+header{
+    height: 200px;
+    background-image: url(/front-end/images/texture-gris.png);
+    border-bottom: 20px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 main{
     display: flex;
-    align-items: center;
-    flex-direction: column;
-    padding: 20px;
+    justify-content: center;
 }
 
-h1{
-    margin: 20px;
+p{
+    max-width: 700px;
 }
 
-article{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+.degrader-main{
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,000000+50,000000+100&1+0,0+25,0.8+50,0+75,1+100 */
+    background: -moz-linear-gradient(left,  rgba(0,0,0,1) 0%, rgba(0,0,0,0) 25%, rgba(0,0,0,0.8) 50%, rgba(0,0,0,0) 75%, rgba(0,0,0,1) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left,  rgba(0,0,0,1) 0%,rgba(0,0,0,0) 25%,rgba(0,0,0,0.8) 50%,rgba(0,0,0,0) 75%,rgba(0,0,0,1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right,  rgba(0,0,0,1) 0%,rgba(0,0,0,0) 25%,rgba(0,0,0,0.8) 50%,rgba(0,0,0,0) 75%,rgba(0,0,0,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000',GradientType=1 ); /* IE6-9 */
+    height: 100%;
+    width: 100%;
+    position: absolute;
 }
 
-.sections{
+.degrader-header{
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,000000+50,000000+100&1+0,0+25,0.8+50,0+75,1+100 */
+    background: -moz-linear-gradient(left,  rgba(0,0,0,1) 0%, rgba(0,0,0,0) 25%, rgba(0,0,0,0.8) 50%, rgba(0,0,0,0) 75%, rgba(0,0,0,1) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left,  rgba(0,0,0,1) 0%,rgba(0,0,0,0) 25%,rgba(0,0,0,0.8) 50%,rgba(0,0,0,0) 75%,rgba(0,0,0,1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right,  rgba(0,0,0,1) 0%,rgba(0,0,0,0) 25%,rgba(0,0,0,0.8) 50%,rgba(0,0,0,0) 75%,rgba(0,0,0,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000',GradientType=1 ); /* IE6-9 */
+    position: absolute;
+    height: 200px;
+    width: 100%;
+}
+
+.logo{
+    width: 150px;
+    position: relative;
+    margin-left: 40px;
+}
+
+.panier{
+    width: 40px;
+    margin-right: 40px;
+    position: relative;
+}
+
+section{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
 }
 
-.card-articles{
-    margin: 20px;
+.article-index{
+    filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+    margin: 40px;
 }
 
-.none{
-    display: none;
+.article-index:hover{
+    filter: grayscale(0%);
+    -webkit-filter: grayscale(0%);
+    -moz-filter: grayscale(0%);
+    -ms-filter: grayscale(0%);
+    -o-filter: grayscale(0%);
 }
 
-.card-product{
-    flex-direction: row;
+.images-index{
+    width: 250px;
+    border: 7px solid white;
+    position: relative;
+    left: -5px;
+    z-index: 5;
+    box-shadow: 0px 0px 15px 7px black;
+    -moz-box-shadow: 0px 0px 15px 7px black;
+    -webkit-box-shadow: 0px 0px 15px 7px black;
+}
+
+.images-index:hover{
+    transform: rotate(0deg);
+}
+
+.img-i-0{
+    transform: rotate(-5deg);
+}
+
+.img-i-1{
+    transform: rotate(5deg);
+}
+
+.box-index{
+    background-image: url(/front-end/images/texture-papier.jpeg);
+    top: 0px;
+    position: relative;
+    z-index: 1;
+    width: 250px;
+    transform: rotate(0deg);
+    padding: 5px;
+}
+
+.description-index:hover{
+    color: black;
+}
+
+h2{
+    margin-top: 20px;
+}
+
+a{
+    text-decoration: none;
+}
+
+a:hover{
+    color: black;
+}
+
+.box-description{
+    background-image: url(/front-end/images/texture-papier.jpeg);
+    top: 0px;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    transform: rotate(0deg);
+    padding: 5px;
+    display: flex;
+}
+
+@media screen and (max-width: 1000px) {
+
+    .box-description{
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .images-description{
+        width: 400px;
+        border: 7px solid white;
+        position: relative;
+        left: -5px;
+        z-index: 5;
+        box-shadow: 0px 0px 15px 7px black;
+        -moz-box-shadow: 0px 0px 15px 7px black;
+        -webkit-box-shadow: 0px 0px 15px 7px black;
+    }
+
+}
+
+@media screen and (max-width: 450px) {
+
+    .images-description{
+        width: 300px;
+        border: 7px solid white;
+        position: relative;
+        left: -5px;
+        z-index: 5;
+        box-shadow: 0px 0px 15px 7px black;
+        -moz-box-shadow: 0px 0px 15px 7px black;
+        -webkit-box-shadow: 0px 0px 15px 7px black;
+    }
+
+}
+
+.box-txt{
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+}
+
+.bold{
+    font-weight: bold;
+}
+
+.txt-list{
+    margin-top: 20px;
+}
+
+
+@media screen and (min-width: 1001px) {
+
+    .images-description{
+        height: 300px;
+        border: 7px solid white;
+        position: relative;
+        left: -5px;
+        z-index: 5;
+        box-shadow: 0px 0px 15px 7px black;
+        -moz-box-shadow: 0px 0px 15px 7px black;
+        -webkit-box-shadow: 0px 0px 15px 7px black;
+    }
+
+}
+
+.prix{
+    font-size: 2em;
+    margin-right: 20px;
+}
+
+.form-select, #qte{
+    width: 300px;
+}
+
+.box-end{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+}
+
+button{
+    border: none;
+    background-image: url(/front-end/images/texture-noir.jpeg);
+    color: white;
+    padding: 10px 20px 10px 20px;
+    border-radius: 10px 0px 10px 10px;
+}
+
+#produits-panier{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.box-panier{
+    background-color: white;   
+    position: relative;
+    z-index: 2;
+    width: 300px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.image-panier{
+    width: 100%;
+}
+
+.article-panier{
+    width: 300px;
     margin: 20px;
 }
 
-@media screen and (max-width: 796px) {
-    .card-product{
-        flex-wrap: wrap;
-    }
+.box-panier-txt{
+    display: flex;
 }
 
-.imgs-products{
-    width: 400px;
-
+.box-panier-txt p {
+    margin: 10px;
 }
 
-.list-qte, .list-coul{
-    margin: 20px 20px 20px 0px;
-}
-
-.icone-panier{
+.box-croix{
+    background-color: white;
+    height: 30px;
+    width: 30px;
+    border-radius: 50px;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.5;
     cursor: pointer;
-    display: flex;
-    text-decoration: none;
-    align-items: center;
 }
 
-.compteur{
+.box-croix:hover{
+    opacity: 1;
+    background-color: red;
+}
+
+#box-panier{
+    color: white;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: flex-start;
+}
+
+#nbr-panier{
     margin-right: 10px;
-    font-size: 1.5em;
-}
-
-.box-btn-prix{
-    display: flex;
-    justify-content: space-between;
-    font-weight: bold;
-    font-size: 2em;
-    align-items: center;
-}
-
-.img-panier{
-    width: 150px;
-}
-
-.section-panier{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.section-panier p{
-    margin: 20px 20px 20px 20px;
-
-}
-
-.prixTotalArticlePanier{
-    font-weight: bold;
-    font-size: 1em;
+    margin-top: 5px;
 }
