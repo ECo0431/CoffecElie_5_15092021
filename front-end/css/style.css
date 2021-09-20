@@ -6,12 +6,12 @@
 }
 
 body{
-    background-image: url(/front-end/images/texture-noir.jpeg);
+    background-image: url(../../front-end/images/texture-noir.jpeg);
 }
 
 header{
     height: 200px;
-    background-image: url(/front-end/images/texture-gris.png);
+    background-image: url(../../front-end/images/texture-gris.png);
     border-bottom: 20px solid black;
     display: flex;
     align-items: center;
@@ -107,7 +107,7 @@ section{
 }
 
 .box-index{
-    background-image: url(/front-end/images/texture-papier.jpeg);
+    background-image: url(../../front-end/images/texture-papier.jpeg);
     top: 0px;
     position: relative;
     z-index: 1;
@@ -133,7 +133,7 @@ a:hover{
 }
 
 .box-description{
-    background-image: url(/front-end/images/texture-papier.jpeg);
+    background-image: url(../../front-end/images/texture-papier.jpeg);
     top: 0px;
     position: relative;
     z-index: 1;
@@ -226,7 +226,7 @@ a:hover{
 
 button{
     border: none;
-    background-image: url(/front-end/images/texture-noir.jpeg);
+    background-image: url(../../front-end/images/texture-noir.jpeg);
     color: white;
     padding: 10px 20px 10px 20px;
     border-radius: 10px 0px 10px 10px;
