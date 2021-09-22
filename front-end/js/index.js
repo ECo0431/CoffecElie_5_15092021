@@ -8,7 +8,7 @@ async function main(){
     const getData = await fetch(URLAPI);
     const data = await getData.json();
 
-    console.table(data);//Les données doit être présente
+    console.table(data);//Les données présente
 
     const produitsIndex = document.getElementById("produits-index");
     let x = 0;

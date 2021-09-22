@@ -13,7 +13,7 @@ async function afficheDescription(){
 
     const idProduitSelectionner = data.find((element) => element._id === urlIdNet);
 
-    console.table(idProduitSelectionner);//L'objet en question doit être présent 
+    // console.table(idProduitSelectionner);//L'objet en question doit être présent 
 
     const produitsIndex = document.getElementById("produits-description");
     let x = 0;
@@ -52,7 +52,6 @@ function recupChoixProduit(idProduitSelectionner){
     const btnAcheter = document.querySelector("#btn-acheter");
 
     btnAcheter.addEventListener("click", (e) =>{
-        e.preventDefault();
         location.reload();
 
         const list = document.querySelector("#list"); 
@@ -60,7 +59,7 @@ function recupChoixProduit(idProduitSelectionner){
         const choixList = list.value;
         let choixQte = qte.value;
 
-        let optionsProduit = {
+        let Produit = {
             nomProduit: idProduitSelectionner.name,
             id: idProduitSelectionner._id,
             optionsProduit: choixList,
@@ -69,7 +68,7 @@ function recupChoixProduit(idProduitSelectionner){
             image: idProduitSelectionner.imageUrl
         };
 
-        ajoutProduitLocalStorage(optionsProduit)
+        ajoutProduitLocalStorage(Produit)
     
     });
 };
@@ -86,16 +85,28 @@ function listOptions(idProduitSelectionner){
     elList.innerHTML = listTable;
 };
 
-function ajoutProduitLocalStorage(optionsProduit){
+function ajoutProduitLocalStorage(Produit){
     let produitsLocalStorage = JSON.parse(localStorage.getItem("produit"));
 
     if(produitsLocalStorage){
-        produitsLocalStorage.push(optionsProduit);
+        produitsLocalStorage.push(Produit);
         localStorage.setItem("produit", JSON.stringify(produitsLocalStorage));
     }else{
         produitsLocalStorage = [];
-        produitsLocalStorage.push(optionsProduit);
+        produitsLocalStorage.push(Produit);
         localStorage.setItem("produit", JSON.stringify(produitsLocalStorage));
+    };
+
+    //Pour Api Back-End
+    let produitsLocalStorageApi = JSON.parse(localStorage.getItem("products"));
+
+    if(produitsLocalStorageApi){
+        produitsLocalStorageApi.push(Produit.id);
+        localStorage.setItem("products", JSON.stringify(produitsLocalStorageApi));
+    }else{
+        produitsLocalStorageApi = [];
+        produitsLocalStorageApi.push(Produit.id);
+        localStorage.setItem("products", JSON.stringify(produitsLocalStorageApi));
     };
 };
 
