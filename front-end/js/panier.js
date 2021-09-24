@@ -2,8 +2,12 @@ let recupLocalStorage = [];
 const MAINPANIER = document.querySelector(".main-panier");
 recupLocalStorage = JSON.parse(localStorage.getItem("produit"));
 const produitsPanier = document.getElementById("produits-panier");
-let validForm = 0;
-
+let validFormNom = false;
+let validFormPrenom = false;
+let validFormEmail = false;
+let validFormAdresse = false;
+let validFormVille = false;
+let validFormCp = false;
 
 if(recupLocalStorage){
     if (recupLocalStorage.length > 0){
@@ -80,40 +84,47 @@ if(recupLocalStorage){
             
                 
                     btnCommander.addEventListener("click", async e =>{
-                        if(validForm == 6){
-                        e.preventDefault();
-                
-                        const contact = {
-                            firstName: document.querySelector("#prenom").value,
-                            lastName: document.querySelector("#nom").value,
-                            address: document.querySelector("#adresse").value,          
-                            city: document.querySelector("#ville").value,
-                            email: document.querySelector("#email").value
+                        if(validFormNom == true && 
+                        validFormPrenom == true &&
+                        validFormEmail == true &&
+                        validFormAdresse == true &&
+                        validFormVille == true &&
+                        validFormCp == true
+                        ){
+                            e.preventDefault();
+                    
+                            const contact = {
+                                firstName: document.querySelector("#prenom").value,
+                                lastName: document.querySelector("#nom").value,
+                                address: document.querySelector("#adresse").value,          
+                                city: document.querySelector("#ville").value,
+                                email: document.querySelector("#email").value
+                            };
+                    
+                            const data = {
+                                contact,
+                                products: JSON.parse(localStorage.getItem("products"))
+                            };
+                            
+                            const promise = await fetch("http://localhost:3000/api/cameras/order",{
+                                method: "POST",
+                                body: JSON.stringify(data),
+                                headers:{
+                                    "Content-Type": "application/json"
+                                }
+                            });
+                    
+                            const result = await promise.json();
+                    
+                            localStorage.setItem("numeroCommande", result.orderId);
+                    
+                            localStorage.setItem("contact", JSON.stringify(contact));
+                    
+                            document.location.href="../../front-end/html/commande.html"; 
+
+                        }else{
+                            console.log("regex NOK")
                         };
-                
-                        const data = {
-                            contact,
-                            products: JSON.parse(localStorage.getItem("products"))
-                        };
-                        
-                        const promise = await fetch("http://localhost:3000/api/cameras/order",{
-                            method: "POST",
-                            body: JSON.stringify(data),
-                            headers:{
-                                "Content-Type": "application/json"
-                            }
-                        });
-                
-                        const result = await promise.json();
-                
-                        localStorage.setItem("numeroCommande", result.orderId);
-                
-                        localStorage.setItem("contact", JSON.stringify(contact));
-                
-                        document.location.href="../../front-end/html/commande.html"; 
-                    }else{
-                        console.log("ok")
-                    }
                     });
 
 
@@ -189,7 +200,6 @@ if(recupLocalStorage){
                 });
                 form.cp.addEventListener("change", function(){
                     validCp(this)
-                    console.log(validForm)
                 });
 
                 const validNom = function(inputNom){
@@ -199,10 +209,11 @@ if(recupLocalStorage){
                     let nomNOK = document.querySelector("#nom-nok")
                     if(testNom){
                         nomOK.innerHTML = "Nom Valide";
-                        validForm++;
+                        validFormNom = true;
                     }else{
                         nomNOK.innerHTML = "Nom Invalide";
-                    }
+                        validFormNom = false;
+                    };
                 };
                 
                 const validPrenom = function(inputPrenom){
@@ -212,10 +223,11 @@ if(recupLocalStorage){
                     let prenomNOK = document.querySelector("#prenom-nok")
                     if(testPrenom){
                         prenomOK.innerHTML = "Prénom Valide";
-                        validForm++;
+                        validFormPrenom = true;
                     }else{
                         prenomNOK.innerHTML = "Prénom Invalide";
-                    }
+                        validFormPrenom = false;
+                    };
                 };
                 
                 const validEmail = function(inputEmail){
@@ -225,10 +237,11 @@ if(recupLocalStorage){
                     let emailNOK = document.querySelector("#email-nok")
                     if(testEmail){
                         emailOK.innerHTML = "Email Valide";
-                        validForm++;
+                        validFormEmail = true;
                     }else{
                         emailNOK.innerHTML = "Email Invalide";
-                    }
+                        validFormEmail = false;
+                    };
                 };
                 
                 const validAdresse = function(inputAdresse){
@@ -238,10 +251,11 @@ if(recupLocalStorage){
                     let adresseNOK = document.querySelector("#adresse-nok")
                     if(testAdresse){
                         adresseOK.innerHTML = "Adresse Valide";
-                        validForm++;
+                        validFormAdresse = true;
                     }else{
                         adresseNOK.innerHTML = "Adresse Invalide";
-                    }
+                        validFormAdresse = false;
+                    };
                 };
                 
                 const validVille = function(inputVille){
@@ -251,10 +265,11 @@ if(recupLocalStorage){
                     let villeNOK = document.querySelector("#ville-nok")
                     if(testVille){
                         villeOK.innerHTML = "Ville Valide";
-                        validForm++;
+                        validFormVille = true;
                     }else{
                         villeNOK.innerHTML = "Ville Invalide";
-                    }
+                        validFormVille = false;
+                    };
                 };
                 
                 const validCp = function(inputCp){
@@ -264,10 +279,11 @@ if(recupLocalStorage){
                     let cpNOK = document.querySelector("#cp-nok")
                     if(testCp){
                         cpOK.innerHTML = "CP Valide";
-                        validForm++;
+                        validFormCp = true;
                     }else{
                         cpNOK.innerHTML = "CP Invalide";
-                    }
+                        validFormCp = false;
+                    };
                 };
             };
         afficheForm();
@@ -276,7 +292,6 @@ if(recupLocalStorage){
         nbrPanier(recupLocalStorage);
         supprProduitsPanier(recupLocalStorage);
         calculPrixTotal(recupLocalStorage);
-        console.log(validForm)
 
     }else if(recupLocalStorage == null || recupLocalStorage == 0){
         MAINPANIER.innerHTML=`

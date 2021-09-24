@@ -13,8 +13,6 @@ async function afficheDescription(){
 
     const idProduitSelectionner = data.find((element) => element._id === urlIdNet);
 
-    // console.table(idProduitSelectionner);//L'objet en question doit être présent 
-
     const produitsIndex = document.getElementById("produits-description");
     let x = 0;
 
