@@ -1,1 +1,3 @@
-# CoffecElie_5_15092021
+- Dans le dossier back-end éxecuter les commandes suivantes :
+- npm install
+- npm start
